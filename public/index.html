@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Notr Pro</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="../images/notre pro-3.jpg"/>
+            <a class="Acceuil" href="index.html">Acceuil</a>
+            <a class="notrepro" href="#nopres">Notre Pro</a>
+            <a href="#" id="scrollLink" class="dispos"> Disponibilites</a>
+            <a href="#contctFooter" class="contactHeader">Contact</a>
+        </header>
+        <nav>
+            <img src="../images/background image 4.jpg">
+                <h1 class="votreConfort">Votre confort</h1>
+                <h1>Est</h1>
+                <h1 id="nopres" class="notreTache">Notre Tâche</h1>
+        </nav>
+        <section>
+            <h2 class="notrepro-h1" >Qui somme nous?</h2>
+            <p id="notrepro-p" class="notrepro-p">La promotion immobilière <span>NOTRE PRO</span> vous offre la chance de construire votre chez-vous selon vos goûts, en transformant des terrins vides en apparetements et des lofts résidentiels durables et connectés. Notre premier projets était la résidence <span>CASA NUOVA</span> située à Ain Mariem Bizerte.</p>
+           
+            </section>
+        <aside>
+            <h1 id="dispos">Disponibilites</h1>
+            <h2> .Projets réalisés:</h2>
+            <div class="prjrealisés">
+                <div class="projet" class="projet1">
+                    <h3>Casa Nuova :</h3>
+                    <a class="casaImg" href="CasaNuova.html"><img class="casaNuovaImg" src="../images/casa nuova.jpg"></a>
+                    <div class="caracteristique"> 
+                        <h4>.Disponibilité : vendu</h4>
+                        <h4>.localisation : Ain Mariem</h4>
+                    </div>
+                </div>
+                <div class="projet">
+                    <h3>Fleur De Lys (1ère Phase) :</h3>
+                    <a class="flrImg" href="Fleur De Lys.html"><img class="fleurdelysImg" src="../images/7_14 - Photo.jpg"></a>
+                    <div class="caracteristique"> 
+                        <h4>.Disponibilité : vendu</h4>
+                        <h4>.localisation : Ain Mariem</h4>
+                    </div>
+            </div>
+            
+        </aside>
+        <footer>
+            <div class="formContainer">
+                <h2 id="contctFooter" class="contct">Contacter-Nous</h2>
+                <form class="formulair" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="351a1a08-1c31-4405-9bd9-d56e8abb3838">
+                    <input name="name" class="inp1" type="text" placeholder="Nom et Prénom">
+                    <span class="errorinp1"></span>
+                    <input name="email" class="inp2"  type="email" placeholder="E-mail">
+                    <input name="phone" class="inp3"  type="number" placeholder="Télephone">
+                    <textarea class="inp4"  name="message" id="msg" placeholder="Message"></textarea> 
+                    <span class="error"></span>
+                    <button class="subbutton" type="submit">Envoyer</button>
+                </form>
+            </div>
+            <div class="npFooter">
+                <img class="npfooterImg" src="../images/notre pro-3.jpg"/>
+                <h3>Votre Confort</h3>
+                <h3>Est</h3>
+                <h3>Notre Tâche</h3>
+                <br><a href="https://www.facebook.com/notreprobizerte"><img src="../images/facebook.webp" class="facebookImg"></a>
+            </div>
+            <div class="coordonne">
+                <h2 class="coordonneh2">Nos Coordonnées</h2>
+                <div class="contCoordonne">
+                    <span class="spanFooter">
+                        <img class="telMailImg" src="../images/tel.jpg">
+                        <h3>Tél:</h3>
+                    </span>
+                    <h3 class="numMail">53 575 775</h3>
+                </div>
+                <div class="contCoordonne">
+                    <span class="spanFooter">
+                        <img class="telMailImg" src="../images/mail.webp">
+                        <h3>E-mail:</h3>
+                    </span>
+                    <h3 class="numMail">Notrepro2@gmail.com</h3>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+            const header = document.querySelector("header");
+            let isHovering = false; // Indique si la souris est sur le header
+
+            // Quand la souris entre dans le header
+            header.addEventListener("mouseenter", function () {
+            isHovering = true; 
+            header.style.opacity = 1; 
+            });
+            
+            header.addEventListener("mouseleave", function () {
+            isHovering = false; 
+            updateOpacity(); 
+        });
+
+            // Gérer l'opacité au défilement
+            function updateOpacity() {
+                if (!isHovering) { // Ne changer l'opacité que si la souris n'est pas sur le header
+                    const scrollY = window.scrollY;
+                    const maxScroll = 300;
+                    const opacity = Math.max(0.5, 1 - scrollY / maxScroll);
+                    header.style.opacity = opacity;
+                }
+        }
+        // Mettre à jour l'opacité lors du défilement
+        window.addEventListener("scroll", updateOpacity);
+
+        document.getElementById('scrollLink').addEventListener('click', function() {
+            event.preventDefault();
+            let nbr = 850; 
+            let scrolling = window.scrollY;
+            let total = nbr - scrolling;
+            window.scrollBy({
+                top: total, 
+                left: 0,  
+                behavior: 'smooth'
+            });
+        });
+
+        const checking = window.localStorage.getItem('check');
+        if (checking) {
+            window.scrollTo({
+                top : 850,
+                behavior : "smooth"
+            });
+            window.localStorage.removeItem('check');
+        }
+
+        const form = document.querySelector('.formulair');
+        const error = document.querySelector('.error');
+        const subButton = document.querySelector('.subbutton');
+        form.addEventListener('submit' , (event) => {
+            
+            let tst = 1;
+            let i = 1;
+            const int = /^[a-zA-Z-]+$/;
+            while((tst === 1) && (i < 5)){
+                const inp = document.querySelector(`.inp${i}`);
+                if (inp.value.trim() === ''){
+                    tst = 0;
+                }
+                else { i++; }
+            }
+            if  (tst === 0) {
+                event.preventDefault();
+                error.innerHTML = 'Veuillez remplir tous les chaps!';
+            }
+            else {
+                error.innerHTML = '';
+            }
+            const inp1 = document.querySelector('.inp1');
+            const inp2 = document.querySelector('.inp2');
+            const errorinp1 = document.querySelector('.errorinp1');
+            const errorinp2 = document.querySelector('.errorinp2');
+            if (!(int.test(inp1.value)))  {
+                event.preventDefault();
+                errorinp1.innerHTML = "Veuillez saisir uniquement des lettres de l'alphabet et des tirets (« - »). ";
+            }
+            else {
+                errorinp1.innerHTML = '';
+            }
+        });
+
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Casa Nuova</title>
+    <style>
+        @media (max-width: 1366px) {
+            html, body {
+                margin: 0;
+                padding: 0;
+                width: 100%;  
+                overflow-x: hidden;
+                box-sizing: border-box;
+                max-width: 100%;
+            }
+            .container{
+                display: grid;
+                grid-template-rows: repeat auto auto;
+                box-sizing: border-box;
+            }   
+            header {
+            width: 100%;
+            height: auto; 
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            background-color: rgba(7, 40, 90, 1);
+            color: white;
+            transition: opacity 0.3s ease;
+            align-items: center;
+            justify-items: center; 
+            margin: 0;
+            padding: 0;
+            position: fixed;
+            z-index: 1000;
+        }
+        header:hover {
+            opacity: 1; 
+        }
+        header img{
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            border-radius: 60px;
+            grid-column: 2/4;
+            grid-row: 1;
+            justify-self: center;
+        }
+        a{
+            font-size: 23px;
+            padding: 5px 15px;
+            margin: 9.3px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-style: italic;
+            transition: background-color 0.3s ease 0.2s;
+            grid-row: 2;
+            justify-self: center;
+            align-self: center;
+            white-space: nowrap;
+        }
+        a:hover{
+            background-color: #FFA500;
+        }
+        .Acceuil{
+            grid-column: 1;
+        }
+        .notrepro{
+            grid-column: 2;
+        }
+        .dispos{
+            grid-column: 3;
+        }
+        .contactHeader{
+        grid-column: 4;
+        }
+
+        nav{
+            margin-top: 165px;
+            grid-row: 1;
+            width: 100%;
+            height: auto;
+            border-top: 3px solid rgba(7, 40, 90, 1);
+            border-bottom: 3px solid rgba(7, 40, 90, 1);
+        }
+        .myVideo{
+            display: flex;
+            justify-self: center;
+            margin-top: 13px;
+            margin-bottom: 50px;
+        }
+        footer {
+        width: 100%;
+        height: auto;
+        grid-row: 4;
+        border-top: 3px solid rgba(7, 40, 90, 1);
+        background-color: rgba(7, 40, 90, 1);
+        color: white;
+        display: grid;
+        grid-template-columns: repeat(4,auto);
+        grid-template-rows: 1;
+        padding-top: 0;
+        padding-bottom: 15px;
+        text-align: center;
+        justify-items: center;
+    }
+    .formContainer{
+        grid-column: 2/4;
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;
+        width: 90%;
+        justify-self: center;
+        max-width: 100%;
+    }
+    .formulair{
+        grid-column: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    #msg{
+        height: 70px;
+        resize: none;
+    }
+    .facebookImg{
+        width: 30px;
+        height: 30px;
+        border-radius: 60px; 
+        box-shadow: 0 0 15px black,
+        0 0 10px black,
+        0 0 15px black,
+        0 0 15px black,
+        0 0 15px black;
+    }
+    .facebookImg:hover{
+        box-shadow: 0 0 5px #FFA500,
+        0 0 5px #FFA500,
+        0 0 10px #FFA500,
+        0 0 10px #FFA500,
+        0 0 10px #FFA500;
+    }
+    .contct{
+        text-shadow: 
+            0 0 5px #FFA500,
+            0 0 15px #FFA500,
+            0 0 25px #FFA500,
+            0 0 35px #FFA500,
+            0 0 45px #FFA500;
+            text-decoration: underline;
+    }
+    .npFooter{
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: center;
+        text-shadow: 
+        0 0 5px #FFA500,
+        0 0 15px #FFA500,
+        0 0 25px #FFA500,
+        0 0 35px #FFA500,
+        0 0 45px #FFA500;
+    }
+    .npfooterImg{
+        width: 100px;
+        height: 100px;
+        margin: 5px;
+        border-radius: 60px;
+    }
+    .coordonne{
+        grid-column: 4;
+    }
+    
+    .contCoordonne{
+        display: block;
+
+    }
+    .spanFooter{
+        display: flex;
+    }
+    .coordonneh2{
+        text-shadow: 
+        0 0 5px #FFA500,
+        0 0 15px #FFA500,
+        0 0 25px #FFA500,
+        0 0 35px #FFA500,
+        0 0 45px #FFA500;
+        text-decoration: underline;
+    }
+    .telMailImg{
+        width: 23px;
+        height: 23px;
+        border-radius: 60px;
+        box-shadow: 0 0 5px #FFA500,
+        0 0 5px #FFA500,
+        0 0 5px #FFA500,
+        0 0 5px #FFA500,
+        0 0 5px #FFA500;
+    }
+    .numMail{
+        margin-bottom: 50px;
+        margin-top: 0;
+        justify-self: flex-start;
+    }
+    .error{
+        color: #FFA500;
+    }
+    .subbutton{
+        height: 45px;
+        width: 30%;
+        align-self: center;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .subbutton:hover {
+        background-color: #FFA500;
+        transform: translateY(-2px);
+    }
+    .subbutton:active {
+        background-color: #FFA500;
+        transform: translateY(0);
+    }
+    .errorinp1{
+        color: #FFA500;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="../images/notre pro-3.jpg"/>
+            <a class="Acceuil" href="index.html"> Acceuil</a>
+            <a class="notrepro" href="index.html#nopres">Notre Pro</a>
+            <a class="dispos" id="scrollLink" href="#">  Disponibilites</a>
+            <a href="#contctFooter" class="contactHeader">Contact</a>
+        </header>
+        <nav>
+            <video class="myVideo" id="myVideo" width="720" height="440" muted autoplay  controls  poster="../images/casa nuova.jpg" lazy loading>
+                <source src="../casa Nuova/CASA_NUOVA_FINAL_Attijari_bank_01.mp4" type="video/mp4">
+                <source src="../casa Nuova/CASA_NUOVA_FINAL_Attijari_bank_01.mp4" type="video/webm">
+            </video>
+        </nav>
+        <footer>
+            <div class="formContainer">
+                <h2 id="contctFooter" class="contct">Contacter-Nous</h2>
+                <form class="formulair" action="" method="post">
+                    <input class="inp1" type="text" placeholder="Nom et Prénom">
+                    <span class="errorinp1"></span>
+                    <input class="inp2"  type="email" placeholder="E-mail">
+                    <input class="inp3"  type="number" placeholder="Télephone">
+                    <textarea class="inp4"  name="msg" id="msg" placeholder="Message"></textarea> 
+                    <span class="error"></span>
+                    <button class="subbutton" type="submit">Envoyer</button>
+                </form>
+            </div>
+            <div class="npFooter">
+                <img class="npfooterImg" src="../images/notre pro-3.jpg"/>
+                <h3>Votre Confort</h3>
+                <h3>Est</h3>
+                <h3>Notre Tâche</h3>
+                <br><a href="https://www.facebook.com/notreprobizerte"><img src="../images/facebook.webp" class="facebookImg"></a>
+            </div>
+            <div class="coordonne">
+                <h2 class="coordonneh2">Nos Coordonnées</h2>
+                <div class="contCoordonne">
+                    <span class="spanFooter">
+                        <img class="telMailImg" src="../images/tel.jpg">
+                        <h3>Tél:</h3>
+                    </span>
+                    <h3 class="numMail">53 575 775</h3>
+                </div>
+                <div class="contCoordonne">
+                    <span class="spanFooter">
+                        <img class="telMailImg" src="../images/mail.webp">
+                        <h3>E-mail:</h3>
+                    </span>
+                    <h3 class="numMail">Notrepro2@gmail.com</h3>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+        <script>
+            const header = document.querySelector("header");
+            let isHovering = false; // Indique si la souris est sur le header
+    
+            // Quand la souris entre dans le header
+            header.addEventListener("mouseenter", function () {
+            isHovering = true; 
+            header.style.opacity = 1; 
+            });
+            
+            header.addEventListener("mouseleave", function () {
+            isHovering = false; 
+            updateOpacity(); 
+        });
+    
+            // Gérer l'opacité au défilement
+            function updateOpacity() {
+            if (!isHovering) { // Ne changer l'opacité que si la souris n'est pas sur le header
+              const scrollY = window.scrollY;
+              const maxScroll = 300;
+              const opacity = Math.max(0.5, 1 - scrollY / maxScroll);
+              header.style.opacity = opacity;
+            }
+        }
+        // Mettre à jour l'opacité lors du défilement
+        window.addEventListener("scroll", updateOpacity);
+    
+        const video = document.getElementById('myVideo');
+        video.volume = 0.8;
+        video.addEventListener('ended', () => {
+          video.removeAttribute('autoplay');
+          video.load(); 
+        });
+        
+        const disponibilite = document.getElementById("scrollLink");
+        disponibilite.addEventListener('click' , () => {
+            const nbr = 1;
+            window.localStorage.setItem('check', `${nbr}`);
+            window.location.href = 'index.html';
+        });
+
+        const form = document.querySelector('.formulair');
+        const error = document.querySelector('.error');
+        form.addEventListener('submit' , (event) => {
+            event.preventDefault();
+            let tst = 1;
+            let i = 1;
+            const int = /^[a-zA-Z-]+$/;
+            while((tst === 1) && (i < 5)){
+                const inp = document.querySelector(`.inp${i}`);
+                if (inp.value.trim() === ''){
+                    tst = 0;
+                }
+                else { i++; }
+            }
+            if  (tst === 0) {
+                error.innerHTML = 'Vous devez remplir tous les chaps!';
+            }
+            else {
+                error.innerHTML = '';
+            }
+            const inp1 = document.querySelector('.inp1');
+            const inp2 = document.querySelector('.inp2');
+            const errorinp1 = document.querySelector('.errorinp1');
+            const errorinp2 = document.querySelector('.errorinp2');
+            if (!(int.test(inp1.value)))  {
+                errorinp1.innerHTML = "Veuillez saisir uniquement des lettres de l'alphabet et des tirets (« - »). ";
+            }
+            else {
+                errorinp1.innerHTML = ''
+            }
+        });
+        </script>
+</body>
+</html>
